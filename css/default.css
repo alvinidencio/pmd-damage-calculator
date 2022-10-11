@@ -1,0 +1,55 @@
+body {
+  background-color: #121212;
+  color: whitesmoke;
+}
+
+.displayBox {
+  border-style: solid;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+input[type="number"] {
+  width: 50px;
+}
+
+th,
+td {
+  padding: 5px;
+}
+
+#testCalc {
+  padding: 15px 30px;
+}
+
+#displayResult {
+  border-style: solid;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+  width: 500px;
+}
+
+#stabLabel {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted white;
+}
+
+#stabLabel #stabInfo {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+#stabLabel:hover #stabInfo {
+  visibility: visible;
+}

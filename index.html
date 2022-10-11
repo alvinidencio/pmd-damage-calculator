@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tabletob PMD Damage Calculator</title>
+    <link rel="stylesheet" href="css/default.css">
+    <script src="main.js"></script>
+</head>
+
+<body >
+    <h1>PMD Damage Calculator</h1>
+
+    <div>
+        <!--Attacker information-->
+        <table class="displayBox">
+            <tr>
+                <th colspan="4">Attacker</th>
+            </tr>
+            <tr>
+                <td>Attack</td>
+                <td>
+                    <label for=baseRankAtk>Base Rank</label>
+                    <select id="baseRankAtk">
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1" selected>1</option>
+                    </select>
+                </td>
+                <td>
+                    <label for=addedRankAtk>Added Rank</label>
+                    <select id="addedRankAtk">
+                        <option value="11">11</option>
+                        <option value="10">10</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1" selected>1</option>
+                    </select>
+                </td>
+                <td>
+                    <label for=combatStageAtk>Combat Stage</label>
+                    <select id="combatStageAtk">
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0" selected>0</option>
+                        <option value="-1">-1</option>
+                        <option value="-2">-2</option>
+                        <option value="-3">-3</option>
+                        <option value="-4">-4</option>
+                        <option value="-5">-5</option>
+                        <option value="-6">-6</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Special Attack</td>
+                <td>
+                    <label for=baseRankSpAtk>Base Rank</label>
+                    <select id="baseRankSpAtk">
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1" selected>1</option>
+                    </select>
+                </td>
+                <td>
+                    <label for=addedRankSpAtk>Added Rank</label>
+                    <select id="addedRankSpAtk">
+                        <option value="11">11</option>
+                        <option value="10">10</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1" selected>1</option>
+                    </select>
+                </td>
+                <td>
+                    <label for=combatStageSpAtk>Combat Stage</label>
+                    <select id="combatStageSpAtk">
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0" selected>0</option>
+                        <option value="-1">-1</option>
+                        <option value="-2">-2</option>
+                        <option value="-3">-3</option>
+                        <option value="-4">-4</option>
+                        <option value="-5">-5</option>
+                        <option value="-6">-6</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <!--Move information-->
+        <table class="displayBox">
+            <tr>
+                <th colspan="2">Move</th>
+            </tr>
+            <tr>
+                <td>AC</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="basePower">BP</label>
+                </td>
+                <td>
+                    <input type="number" id="basePower" min="1" value="1">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="damageType">Damage Type</label>
+                </td>
+                <td>
+                    <select id="damageType">
+                        <option value="physical">Physical</option>
+                        <option value="special">Special</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="stabCheck">STAB</label>
+                </td>
+                <td>
+                    <input type="checkbox" id="stabCheck">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for=typeResistance>Resistance</label>
+                </td>
+                <td>
+                    <select id="typeResistance">
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0" selected>0</option>
+                        <option value="-1">-1</option>
+                        <option value="-2">-2</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="criticalCheck">Critical Hit</label>
+                </td>
+                <td>
+                    <input type="checkbox" id="criticalCheck">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <!--Defender information-->
+        <table class="displayBox">
+            <tr>
+                <th colspan="4">Defender</th>
+            </tr>
+            <tr>
+                <td>Defense</td>
+                <td>
+                    <label for="baseRankDef">Base Rank</label>
+                    <select id="baseRankDef">
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1" selected>1</option>
+                    </select>
+                </td>
+                <td>
+                    <label for="addedRankDef">Added Rank</label>
+                    <select id="addedRankDef">
+                        <option value="11">11</option>
+                        <option value="10">10</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1" selected>1</option>
+                    </select>
+                </td>
+                <td>
+                    <label for="combatStageDef">Combat Stage</label>
+                    <select id="combatStageDef">
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0" selected>0</option>
+                        <option value="-1">-1</option>
+                        <option value="-2">-2</option>
+                        <option value="-3">-3</option>
+                        <option value="-4">-4</option>
+                        <option value="-5">-5</option>
+                        <option value="-6">-6</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Special Defense</td>
+                <td>
+                    <label for="baseRankSpDef">Base Rank</label>
+                    <select id="baseRankSpDef">
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1" selected>1</option>
+                    </select>
+                </td>
+                <td>
+                    <label for="addedRankSpDef">Added Rank</label>
+                    <select id="addedRankSpDef">
+                        <option value="11">11</option>
+                        <option value="10">10</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1" selected>1</option>
+                    </select>
+                </td>
+                <td>
+                    <label for="combatStageSpDef">Combat Stage</label>
+                    <select id="combatStageSpDef">
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0" selected>0</option>
+                        <option value="-1">-1</option>
+                        <option value="-2">-2</option>
+                        <option value="-3">-3</option>
+                        <option value="-4">-4</option>
+                        <option value="-5">-5</option>
+                        <option value="-6">-6</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <h1>Results</h1>
+
+        <label for="testcalc">press this >>>>>></label>      
+        <input type="button" id="testCalc" value="Calculate!" onClick="calculateEffectiveDamage()">
+        <p>Critical calc, Damage Range, and Resistance WIP</p>
+        <div id="displayResult">
+
+        </div>
+        
+    </div>
+
+    <div>
+        <h1>Dice Chart and Formulas</h1>
+        <table>
+            <tr>
+                <th colspan="2">Base Stat Die</th>
+            </tr>
+            <tr>
+                <td>Rank</td>
+                <td>Die</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1d4</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>1d6</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>1d8</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>1d10</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>1d12</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>2d8</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="2">Added Stat Die</th>
+            </tr>
+            <tr>
+                <td>Rank</td>
+                <td>Dice</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2d4</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>1d6 + 1d4</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>2d6</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>1d8 + 1d6</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>2d8</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>1d10 + 1d8</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>2d10</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>1d12 + 1d10</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>2d12</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>2d8 + 1d12</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>4d8</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="3">Combat Stage</th>
+            </tr>
+            <tr>
+                <td>Rank</td>
+                <td>Die</td>
+                <td>Average</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>±1</td>
+                <td>±1d4</td>
+                <td>±2</td>
+            </tr>
+            <tr>
+                <td>±2</td>
+                <td>±1d6</td>
+                <td>±3</td>
+            </tr>
+            <tr>
+                <td>±3</td>
+                <td>±1d8</td>
+                <td>±4</td>
+            </tr>
+            <tr>
+                <td>±4</td>
+                <td>±1d10</td>
+                <td>±5</td>
+            </tr>
+            <tr>
+                <td>±5</td>
+                <td>±1d12</td>
+                <td>±6</td>
+            </tr>
+            <tr>
+                <td>±6</td>
+                <td>±2d8</td>
+                <td>±8</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+</body>
+</html>
